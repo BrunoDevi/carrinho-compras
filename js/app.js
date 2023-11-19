@@ -23,6 +23,8 @@ function productAdd(){
 
     var novoProduto = `<section class='carrinho__produtos__produto'><span class="texto-azul">${produto.quantidade}x </span>${produto.nome} <span class="texto-azul">R$${produto.valor} </span></section>`;
 
+    // é pra funicionar ne.
+
     // var novoProduto = document.createElement("section");
     // novoProduto.className = "carrinho__produtos__produto";
 
