@@ -21,26 +21,22 @@ function preçoTotal() {
 function productAdd(){
     let produto = productInfo();
 
-    var novoProduto = `<section class='carrinho__produtos__produto'><span class="texto-azul">${produto.quantidade}x </span>${produto.nome} <span class="texto-azul">R$${produto.valor} </span></section>`;
+    let novoProduto = document.createElement("section");
+    novoProduto.className = "carrinho__produtos__produto";
 
-    // é pra funicionar ne.
+    let quantidade = document.createElement('span');
+    quantidade.className = "texto-azul";
+    quantidade.textContent = `${produto.quantidade}x `;
 
-    // var novoProduto = document.createElement("section");
-    // novoProduto.className = "carrinho__produtos__produto";
+    let nome = document.createTextNode(produto.nome);
 
-    // let quantidade = document.createElement('span');
-    // quantidade.className = "texto-azul";
-    // quantidade.textContent = `${produto.quantidade}x `;
+    let valor = document.createElement('span');
+    valor.className = "texto-azul";
+    valor.textContent = `R$${produto.valor}`;
 
-    // let nome = document.createTextNode(produto.nome);
-
-    // let valor = document.createElement('span');
-    // valor.className = "texto-azul";
-    // valor.textContent = `R$${produto.valor}`;
-
-    // novoProduto.appendChild(quantidade);
-    // novoProduto.appendChild(nome);
-    // novoProduto.appendChild(valor);
+    novoProduto.appendChild(quantidade);
+    novoProduto.appendChild(nome);
+    novoProduto.appendChild(valor);
 
     let inputQuantidade = document.getElementById('quantidade');
     let listaProdutos = document.getElementById("lista-produtos");
@@ -48,7 +44,7 @@ function productAdd(){
     if(inputQuantidade.value == null || inputQuantidade.value == '' || inputQuantidade.value == '0'){
         alert('Por favor, selecione a quantidade desejada.');
     }else{
-        listaProdutos.innerHTML = novoProduto;
+        listaProdutos.appendChild(novoProduto);
         carrinho.push(produto.preço);
         inputQuantidade.value = '';
     }   
